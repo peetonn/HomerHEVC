@@ -48,9 +48,17 @@ const uint8_t sm_betaTable[52] =
       return g_auiRasterToZscan[g_auiZscanToRaster[uiAbsZorderIdx] + iEdgeIdx * uiLCUWidthInBaseUnits + iBaseUnitIdx ];
     }
   } 
-*/ 
-
-__inline uint bx_index(hvenc_t* ed, cu_partition_info_t* curr_cu_info, int deblock_dir, int cu_width_units, int deblock_edge_idx, int index)
+*/
+// C89 conflict in clang
+// http://clang.llvm.org/compatibility.html#inline
+#if __APPLE__
+#if TARGET_OS_MAC
+static inline
+#endif
+#else
+__inline
+#endif
+uint bx_index(hvenc_t* ed, cu_partition_info_t* curr_cu_info, int deblock_dir, int cu_width_units, int deblock_edge_idx, int index)
 {
 	if(deblock_dir==EDGE_VER)
 		return ed->raster2abs_table[ed->abs2raster_table[curr_cu_info->abs_index]+index*cu_width_units+deblock_edge_idx];
@@ -277,18 +285,44 @@ void get_boundary_strength_single(hvenc_t* ed, slice_t *currslice, ctu_info_t *c
 //	m_aapucBS[dir][uiAbsPartIdx] = uiBs;
 }
 
-__inline int calc_dp( int16_t* src, int offset)
+// C89 conflict in clang
+// http://clang.llvm.org/compatibility.html#inline
+#if __APPLE__
+#if TARGET_OS_MAC
+static inline
+#endif
+#else
+__inline
+#endif
+int calc_dp( int16_t* src, int offset)
 {
   return abs( src[-offset*3] - 2*src[-offset*2] + src[-offset] ) ;
 }
-  
-__inline int calc_dq( int16_t* src, int offset)
+
+// C89 conflict in clang
+// http://clang.llvm.org/compatibility.html#inline
+#if __APPLE__
+#if TARGET_OS_MAC
+static inline
+#endif
+#else
+__inline
+#endif
+int calc_dq( int16_t* src, int offset)
 {
   return abs( src[0] - 2*src[offset] + src[offset*2] );
 }
 
-
-__inline int use_strong_filter( int offset, int d, int beta, int tc, int16_t* src)
+// C89 conflict in clang
+// http://clang.llvm.org/compatibility.html#inline
+#if __APPLE__
+#if TARGET_OS_MAC
+static inline
+#endif
+#else
+__inline
+#endif
+int use_strong_filter( int offset, int d, int beta, int tc, int16_t* src)
 {
   int16_t m4  = src[0];
   int16_t m3  = src[-offset];
@@ -300,7 +334,16 @@ __inline int use_strong_filter( int offset, int d, int beta, int tc, int16_t* sr
   return ( (d_strong < (beta>>3)) && (d<(beta>>2)) && ( abs(m3-m4) < ((tc*5+1)>>1)) );
 }
 
-__inline void filter_luma( int16_t* src, int offset, int tc , int sw, int bPartPNoFilter, int bPartQNoFilter, int iThrCut, int bFilterSecondP, int bFilterSecondQ)
+// C89 conflict in clang
+// http://clang.llvm.org/compatibility.html#inline
+#if __APPLE__
+#if TARGET_OS_MAC
+static inline
+#endif
+#else
+__inline
+#endif
+void filter_luma( int16_t* src, int offset, int tc , int sw, int bPartPNoFilter, int bPartQNoFilter, int iThrCut, int bFilterSecondP, int bFilterSecondQ)
 {
 	int delta;
 
@@ -495,7 +538,16 @@ void deblock_filter_luma(hvenc_t* ed, ctu_info_t *ctu, cu_partition_info_t *curr
 
 
 //__inline Void TComLoopFilter::xPelFilterChroma( Pel* piSrc, Int iOffset, Int tc, Bool bPartPNoFilter, Bool bPartQNoFilter)
-__inline void filter_chroma( int16_t* src, int offset, int tc , int bPartPNoFilter, int bPartQNoFilter)
+// C89 conflict in clang
+// http://clang.llvm.org/compatibility.html#inline
+#if __APPLE__
+#if TARGET_OS_MAC
+static inline
+#endif
+#else
+__inline
+#endif
+void filter_chroma( int16_t* src, int offset, int tc , int bPartPNoFilter, int bPartQNoFilter)
 {
   int delta;
   

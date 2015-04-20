@@ -22,7 +22,13 @@
 
 #include <math.h>
 #include <memory.h>
-#include <malloc.h>
+#if __APPLE__
+    #if TARGET_OS_MAC
+        #include <stdlib.h>
+    #endif
+#else
+    #include <malloc.h>
+#endif
 
 #include "hmr_common.h"
 #include "hmr_private.h"

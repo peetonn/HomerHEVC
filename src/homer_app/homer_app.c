@@ -23,7 +23,13 @@
 #include <stdio.h>
 #include <stdlib.h>
 //#include <process.h>
+#if __APPLE__
+#if TARGET_OS_MAC
+#include <stdlib.h>
+#endif
+#else
 #include <malloc.h>
+#endif
 #include <math.h>
 #include <homer_hevc_enc_api.h>
 #include <string.h>

@@ -41,7 +41,13 @@
  *****************************************************************************/
 
 #include <stdio.h>
-#include	<malloc.h>
+#if __APPLE__
+    #if TARGET_OS_MAC
+        #include <stdlib.h>
+    #endif
+#else
+    #include <malloc.h>
+#endif
 #include	<memory.h>
 #include	<math.h>
 #include	<limits.h>

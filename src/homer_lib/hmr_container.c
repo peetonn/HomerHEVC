@@ -20,7 +20,13 @@
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02111, USA.
  *****************************************************************************/
 
-#include <malloc.h>
+#if __APPLE__
+    #if TARGET_OS_MAC
+        #include <stdlib.h>
+    #endif
+#else
+    #include <malloc.h>
+#endif
 #include <memory.h>
 
 #include "hmr_private.h"

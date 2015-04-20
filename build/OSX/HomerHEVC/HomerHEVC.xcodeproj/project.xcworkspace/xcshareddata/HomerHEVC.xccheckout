@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>845B96E9-1F4D-4170-A9AD-C7BE5A6C376D</string>
+	<key>IDESourceControlProjectName</key>
+	<string>project</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>58D7405EA74A0A6B0A37F8B60A3DA3E8B06DB76B</key>
+		<string>https://github.com/jcasal-homer/HomerHEVC.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>build/OSX/HomerHEVC/HomerHEVC.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>58D7405EA74A0A6B0A37F8B60A3DA3E8B06DB76B</key>
+		<string>../../../../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/jcasal-homer/HomerHEVC.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>58D7405EA74A0A6B0A37F8B60A3DA3E8B06DB76B</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>58D7405EA74A0A6B0A37F8B60A3DA3E8B06DB76B</string>
+			<key>IDESourceControlWCCName</key>
+			<string>HomerHEVC</string>
+		</dict>
+	</array>
+</dict>
+</plist>
